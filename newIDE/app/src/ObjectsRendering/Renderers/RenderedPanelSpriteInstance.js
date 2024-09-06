@@ -56,7 +56,8 @@ export default class RenderedPanelSpriteInstance extends RenderedInstance {
     }
 
     // Change in texture or margins needs textures to be recreated.
-    if (panelSprite.getTexture() !== this._textureName ||
+    if (
+      panelSprite.getTexture() !== this._textureName ||
       panelSprite.getLeftMargin() !== this._leftMargin ||
       panelSprite.getTopMargin() !== this._topMargin ||
       panelSprite.getRightMargin() !== this._rightMargin ||
@@ -92,7 +93,7 @@ export default class RenderedPanelSpriteInstance extends RenderedInstance {
     const panelSprite = gd.asPanelSpriteConfiguration(
       this._associatedObjectConfiguration
     );
-    const texture = PixiResourcesLoader.getInvalidPIXITexture();
+    const texture = PixiResourcesLoader.getLoadingPIXITexture();
 
     this._tiled = panelSprite.isTiled();
     var StretchedSprite = !this._tiled ? PIXI.Sprite : PIXI.TilingSprite;
